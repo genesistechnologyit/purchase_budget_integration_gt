@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_budget_integration_gt_purchase_budget_integration_gt,purchase_budget_integration_gt.purchase_budget_integration_gt,model_purchase_budget_integration_gt_purchase_budget_integration_gt,,1,0,0,0

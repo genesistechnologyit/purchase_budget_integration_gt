@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+    <record id="crossovered_budget_form_inherit" model="ir.ui.view">
+        <field name="name">crossovered.budget.form.inherit</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='analytic_account_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+              <field name="type"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='general_budget_id']" position="replace">
+              <field name="account_id"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='date_from']" position="after">
+              <field name="type"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='practical_amount']" position="after">
+                <field name="reserved_amount" readonly="1"/>
+                <field name="remaining_amount"/>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="lock"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_tree_inherit" model="ir.ui.view">
+        <field name="name">crossovered.budget.tree.inherit</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.crossovered_budget_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+              <field name="type"/>
+            </xpath>
+        </field>
+    </record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='account_analytic_id']" position="replace">
+                <field name="account_analytic_id"
+                       context="{'default_partner_id':parent.partner_id}"
+                       groups="analytic.group_analytic_accounting"
+                       attrs="{'required':[('budget_control','=',True)]}"
+                />
+                <field name="budget_control" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+  </data>
+</odoo>
